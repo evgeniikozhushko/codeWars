@@ -23,6 +23,11 @@ function repeatStr (number, string) {
 }
 console.log(repeatStr(4, "Yup, "))
 
+// Best solution
+function repeatStr (number, string) {
+    return number.repeat(string)
+}
+
 
 // The solution
 // function repeatStr (n, s) {
