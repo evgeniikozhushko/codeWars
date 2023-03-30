@@ -11,6 +11,10 @@ function getEvenNumbers(numbersArray){
     return result
 }
 
+// Best solution
+const getEvenNumbersTwo = numbersArray => numbersArray.filter(num => num % 2 == 0);
+getEvenNumbersTwo()
+
 // Test Case
 const assert = require("chai").assert;
 
