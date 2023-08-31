@@ -9,17 +9,23 @@ arrayOfSheep = [true,  true,  true,  false,
 
 // Solution
 
-function countSheeps(arrayOfSheep) {
-    let count = 0
-    for (let value of arrayOfSheep) {
-        if (value === true) {
-        count ++
-        }
-    }
-    return count
+// function countSheeps(arrayOfSheep) {
+//     let count = 0
+//     for (let value of arrayOfSheep) {
+//         if (value === true) {
+//         count ++
+//         }
+//     }
+//     return count
+// }
+// let sheepCount = countSheeps(arrayOfSheep)
+// console.log(`The array has ${sheepCount} sheep present.`)
+
+// Best answer
+
+function countSheeps(arrayOfSheeps) {
+    return arrayOfSheeps.filter(Boolean).length;
 }
-let sheepCount = countSheeps(arrayOfSheep)
-console.log(`The array has ${sheepCount} sheep present.`)
 
 // Sample Test
 
