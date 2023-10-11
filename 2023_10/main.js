@@ -96,3 +96,13 @@ function lovefunc(flower1, flower2){
 function lovefunc(flower1, flower2){
     return ((flower1%2==0 && flower2%2!=0) || (flower1%2!=0 && flower2%2==0)) ? true : false;
 }
+
+// 5. Given an array of ones and zeroes, convert the equivalent binary value to an integer. Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
+
+// or
+
+const binaryArrayToNumber = arr => {
+    return parseInt(arr.join(""), 2)
+};  
