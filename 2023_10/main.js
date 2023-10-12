@@ -106,3 +106,25 @@ const binaryArrayToNumber = arr => parseInt(arr.join(''), 2);
 const binaryArrayToNumber = arr => {
     return parseInt(arr.join(""), 2)
 };  
+
+// 6. Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+var summation = function (num) {
+    let sumOfNum = 0
+    for (let i = 1; i <= num; i++) {
+        sumOfNum += i
+    }
+    return sumOfNum
+}
+
+// Sample test
+
+const assert = require('chai').assert;
+
+describe('summation', function () {
+it('should return the correct total', function () {
+    assert.strictEqual(summation(1),  1);
+    assert.strictEqual(summation(2),  3);
+    assert.strictEqual(summation(8), 36);
+    })
+})
