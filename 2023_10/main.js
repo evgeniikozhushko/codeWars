@@ -128,3 +128,41 @@ it('should return the correct total', function () {
     assert.strictEqual(summation(8), 36);
     })
 })
+
+// 7. Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+// The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+// Mind the input validation.
+
+function sumArray(array) {
+    if (array.length <= 2) {
+      return 0;
+    }
+  
+    // Find the highest and lowest elements in the array.
+    const highestNum = Math.max(...array);
+    const lowestNum = Math.min(...array);
+  
+    // Sum all the elements in the array.
+    const arraySum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  
+    // Subtract the highest and lowest elements from the sum.
+    const result = arraySum - lowestNum - highestNum;
+  
+    // Return the result.
+    return result;
+  }
+
+// Sample test
+
+// const {assert} = require("chai");
+
+// it("example tests", ()=>{
+//   assert.strictEqual( sumArray(null)                     , 0 );
+//   assert.strictEqual( sumArray([ ])                      , 0 );
+//   assert.strictEqual( sumArray([ 3 ])                    , 0 );
+//   assert.strictEqual( sumArray([ 3, 5 ])                 , 0 );
+//   assert.strictEqual( sumArray([ 6, 2, 1, 8, 10 ])       , 16 );
+//   assert.strictEqual( sumArray([ 0, 1, 6, 10, 10 ])      , 17 );
+//   assert.strictEqual( sumArray([ -6, -20, -1, -10, -12 ]), -28 );
+//   assert.strictEqual( sumArray([ -6, 20, -1, 10, -12 ])  , 3 );
+// });
