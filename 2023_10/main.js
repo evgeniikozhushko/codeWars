@@ -166,3 +166,14 @@ function sumArray(array) {
 //   assert.strictEqual( sumArray([ -6, -20, -1, -10, -12 ]), -28 );
 //   assert.strictEqual( sumArray([ -6, 20, -1, 10, -12 ])  , 3 );
 // });
+
+// 8. kyu 8 Your task is to make two functions ( max and min, or maximum and minimum, etc., depending on the language ) that receive a list of integers as input, and return the largest and lowest number in that list, respectively.
+
+var min = function(list){
+    return minNum = Math.min(...list)
+}
+
+var max = function(list){  
+    return maxNum = Math.max(...list)
+}
+
