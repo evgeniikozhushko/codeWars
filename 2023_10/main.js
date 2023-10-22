@@ -197,14 +197,14 @@ function getGrade (s1, s2, s3) {
     
 }
 
-// 10. 8 kyu 
+// 10. 8 kyu This is a correct solution that does not pass the test.
 
 function countPositivesSumNegatives(input) {
     if (!input || input.length === 0) {
         return [0, 0];
     }
     
-    let positiveResult = 0;  // Initialize as a number, not an array
+    let positiveResult = +0;  // Initialize as a number, not an array
     let negativeResult = 0;  // Initialize as a number, not an array
     
     for(let i = 0; i < input.length; i++) {  // Iterate up to input.length - 1
@@ -219,11 +219,10 @@ function countPositivesSumNegatives(input) {
     return [positiveResult, negativeResult];
 }
 
-  // Example usage:
+// Example usage:
 const inputArray = [1, -2, 3, 0, -5];
 const result = countPositivesSumNegatives(inputArray);
-  console.log(result); // Output: [2, -7]
-
+console.log(result); // Output: [2, -7]
 
 // Sample test
 
@@ -246,3 +245,21 @@ describe("Example tests", () => {
         assert.deepEqual(actual, expected);
     });
 });
+
+// This is a correct solution that pass the test.
+
+function countPositivesSumNegatives(input) {
+    if (input == null || input.length == 0)
+        return [];
+    
+    var positive = 0;
+    var negative = 0;
+    
+    for (var i = 0, l = input.length; i < l; ++i){
+        if (input[i] > 0)
+            ++ positive;
+        else
+        negative += input[i];
+    }
+    return [positive, negative];
+}
