@@ -201,26 +201,48 @@ function getGrade (s1, s2, s3) {
 
 function countPositivesSumNegatives(input) {
     if (!input || input.length === 0) {
-      return [0, 0];
+        return [0, 0];
     }
     
     let positiveResult = 0;  // Initialize as a number, not an array
     let negativeResult = 0;  // Initialize as a number, not an array
     
     for(let i = 0; i < input.length; i++) {  // Iterate up to input.length - 1
-      const number = input[i];
-      if (number > 0) {
-        positiveResult++;  // Increment the count of positive numbers
-      } else if (number < 0) {
-        negativeResult += number;  // Add to the sum of negative numbers
-      }
+        const number = input[i];
+        if (number > 0) {
+            positiveResult++;  // Increment the count of positive numbers
+        } else if (number < 0) {
+            negativeResult += number;  // Add to the sum of negative numbers
+        }
     }
     
     return [positiveResult, negativeResult];
-  }
-  
+}
+
   // Example usage:
-  const inputArray = [1, -2, 3, 0, -5];
-  const result = countPositivesSumNegatives(inputArray);
+const inputArray = [1, -2, 3, 0, -5];
+const result = countPositivesSumNegatives(inputArray);
   console.log(result); // Output: [2, -7]
-  
+
+
+// Sample test
+
+    const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Example tests", () => {
+    it("Testing for fixed test 1", () => {
+        let testData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
+        let actual = countPositivesSumNegatives(testData);
+        let expected = [10, -65];
+        assert.deepEqual(actual, expected);
+    })
+        
+    it("Testing for fixed test 2", () => {
+        let testData = [0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14];
+        let actual = countPositivesSumNegatives(testData);
+        let expected = [8, -50];    
+        assert.deepEqual(actual, expected);
+    });
+});
