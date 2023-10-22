@@ -196,3 +196,31 @@ function getGrade (s1, s2, s3) {
     }
     
 }
+
+// 10. 8 kyu 
+
+function countPositivesSumNegatives(input) {
+    if (!input || input.length === 0) {
+      return [0, 0];
+    }
+    
+    let positiveResult = 0;  // Initialize as a number, not an array
+    let negativeResult = 0;  // Initialize as a number, not an array
+    
+    for(let i = 0; i < input.length; i++) {  // Iterate up to input.length - 1
+      const number = input[i];
+      if (number > 0) {
+        positiveResult++;  // Increment the count of positive numbers
+      } else if (number < 0) {
+        negativeResult += number;  // Add to the sum of negative numbers
+      }
+    }
+    
+    return [positiveResult, negativeResult];
+  }
+  
+  // Example usage:
+  const inputArray = [1, -2, 3, 0, -5];
+  const result = countPositivesSumNegatives(inputArray);
+  console.log(result); // Output: [2, -7]
+  
