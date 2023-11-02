@@ -365,3 +365,9 @@ describe("smash", () =>  {
     assert.strictEqual(smash(["this", "is", "a", "really", "long", "sentence"]), "this is a really long sentence");
   });
 });
+
+// 8 kyu the most simple kata ever
+
+function doubleInteger(i) {
+    return i * 2
+}
