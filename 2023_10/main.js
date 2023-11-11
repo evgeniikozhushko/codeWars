@@ -371,3 +371,10 @@ describe("smash", () =>  {
 function doubleInteger(i) {
     return i * 2
 }
+
+// 14. 8kyu 
+
+function removeExclamationMarks(s) {
+    return s = s.replace(replace(/!/g, ''))
+}
+
