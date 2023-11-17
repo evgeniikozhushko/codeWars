@@ -40,9 +40,14 @@ function getSum(a, b)
    if (a > b) {
      [a,b] = [b, a]
    }
+   // Calculate the sum using the formula for the sum of an arithmetic series
   const sum = ((b - a + 1) * (a + b)) / 2
   return sum
 }
+
+// The formula for the sum of an arithmetic series is a mathematical expression that allows you to find the sum of a sequence of numbers where the difference between consecutive terms is constant. In the context of finding the sum of integers between and including two given numbers a and b, we can use the arithmetic series formula.
+
+// The formula for the sum of an arithmetic series is: S = n/2 * (a + l) where n is the number of terms in the sequence, a is the first term in the sequence, and l is the last term in the sequence.
 
 // Sample Test
 
