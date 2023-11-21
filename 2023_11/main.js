@@ -63,7 +63,7 @@ describe("Basic tests", () => {
   })
 });
 
-// 8 kyu
+// 8 kyu Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
 function squareSum(numbers){
   //   let sum = 0
@@ -81,3 +81,17 @@ function squareSum(numbers){
     }, 0)
       return result                            
   }
+
+// Sample Test
+
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Tests", () => {
+  it("test", () => {
+    assert.strictEqual(squareSum([1,2]), 5);
+    assert.strictEqual(squareSum([0, 3, 4, 5]), 50);
+    assert.strictEqual(squareSum([]), 0);
+  });
+});
