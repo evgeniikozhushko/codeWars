@@ -62,3 +62,22 @@ describe("Basic tests", () => {
     assert.strictEqual(getSum(2, 2),  2);
   })
 });
+
+// 8 kyu
+
+function squareSum(numbers){
+  //   let sum = 0
+  //   for (let i = 0; i < numbers.length; i++) {
+  //     sum += numbers[i] * numbers[i]
+  //   }
+  //   return sum
+    
+    const squareSum = numbers.map((num) => {
+      return num * num
+    })
+    
+    const result = squareSum.reduce((sum, value) => {
+      return sum + value
+    }, 0)
+      return result                            
+  }
