@@ -194,3 +194,47 @@ describe("validatePIN", function() {
     Test.assertEquals(validatePIN("090909"),true, "Wrong output for '090909'");
   });
 });
+
+// Kata 8 kyu Rock Paper Scissors
+
+const rps = (p1, p2) => {
+  if (p1 === p2) {
+    return "Draw!"; // If both moves are the same, it's a draw
+  }
+
+  if (
+    (p1 === "rock" && p2 === "scissors") ||
+    (p1 === "scissors" && p2 === "paper") ||
+    (p1 === "paper" && p2 === "rock")
+  ) {
+    return "Player 1 won!"; // Player 1 winning conditions
+  }
+
+  return "Player 2 won!"; // Otherwise, Player 2 wins
+};
+
+// Sample test
+
+const Test = require('@codewars/test-compat');
+
+describe('rock paper scissors', function() {
+  const getMsg = (n) => `Player ${n} won!`;
+
+  it('player 1 win', function() {
+    Test.assertEquals(rps('rock', 'scissors'), getMsg(1));
+    Test.assertEquals(rps('scissors', 'paper'), getMsg(1));
+    Test.assertEquals(rps('paper', 'rock'), getMsg(1));
+  });
+
+  it('player 2 win', function() {
+    Test.assertEquals(rps('scissors', 'rock'), getMsg(2));
+    Test.assertEquals(rps('paper', 'scissors'), getMsg(2));
+    Test.assertEquals(rps('rock', 'paper'), getMsg(2));
+  });
+
+  it('draw', function() {
+    Test.assertEquals(rps('rock', 'rock'), 'Draw!');
+    Test.assertEquals(rps('scissors', 'scissors'), 'Draw!');
+    Test.assertEquals(rps('paper', 'paper'), 'Draw!');
+  });
+});
