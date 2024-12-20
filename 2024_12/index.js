@@ -238,3 +238,26 @@ describe('rock paper scissors', function() {
     Test.assertEquals(rps('paper', 'paper'), 'Draw!');
   });
 });
+
+// 8 Kyu Is it a palindrome?
+
+function isPalindrome(x) {
+  const normalized = x.toLowerCase(); // Convert to lowercase for case insensitivity
+  const reversed = normalized.split('').reverse().join(''); // Reverse the string
+  return normalized === reversed; // Check if original equals reversed
+}
+
+// Sample test
+
+const { assert } = require('chai');
+
+describe("Fixed tests", function() {
+  it("Testing for 'a'", () => assert.strictEqual(isPalindrome("a"), true));
+  it("Testing for 'aba'", () => assert.strictEqual(isPalindrome("aba"), true));
+  it("Testing for 'Abba'", () => assert.strictEqual(isPalindrome("Abba"), true));
+  it("Testing for 'hello'", () => assert.strictEqual(isPalindrome("hello"), false));
+  it("Testing for 'Bob'", () => assert.strictEqual(isPalindrome("Bob"), true));
+  it("Testing for 'Madam'", () => assert.strictEqual(isPalindrome("Madam"), true));
+  it("Testing for 'AbBa'", () => assert.strictEqual(isPalindrome("AbBa"), true));
+  it("Testing for ''", () => assert.strictEqual(isPalindrome(""), true));
+});
