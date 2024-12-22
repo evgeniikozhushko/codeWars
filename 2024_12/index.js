@@ -261,3 +261,89 @@ describe("Fixed tests", function() {
   it("Testing for 'AbBa'", () => assert.strictEqual(isPalindrome("AbBa"), true));
   it("Testing for ''", () => assert.strictEqual(isPalindrome(""), true));
 });
+
+// Secret Santa
+
+function secretSanta(participants) {
+  // Step 1: Shuffle participants
+  const shuffled = [...participants].sort(() => Math.random() - 0.5);
+
+  // Step 2: Assign pairs
+  const assignments = {};
+  for (let i = 0; i < shuffled.length; i++) {
+    const giver = shuffled[i];
+    const receiver = shuffled[(i + 1) % shuffled.length]; // Next person, loop to start if at the end
+    assignments[giver] = receiver;
+  }
+
+  return assignments;
+}
+
+const participants = ["Alice", "Bob", "Charlie", "Diana", "Eve"];
+const result = secretSanta(participants);
+
+console.log(result);
+/*
+Possible Output:
+{
+  Alice: 'Charlie',
+  Bob: 'Eve',
+  Charlie: 'Diana',
+  Diana: 'Bob',
+  Eve: 'Alice'
+}
+*/
+
+// Additional Features:
+// 1. Prevent Certain Pairs:
+// If you want to ensure that certain people (e.g., couples or close friends) don’t gift to each other, you can add a validation step.
+
+function secretSanta(participants, invalidPairs = []) {
+  let shuffled;
+  let valid = false;
+
+  while (!valid) {
+    shuffled = [...participants].sort(() => Math.random() - 0.5);
+    valid = true;
+
+    for (let i = 0; i < shuffled.length; i++) {
+      const giver = shuffled[i];
+      const receiver = shuffled[(i + 1) % shuffled.length];
+
+      if (invalidPairs.some(([a, b]) => (giver === a && receiver === b) || (giver === b && receiver === a))) {
+        valid = false;
+        break;
+      }
+    }
+  }
+
+  const assignments = {};
+  for (let i = 0; i < shuffled.length; i++) {
+    const giver = shuffled[i];
+    const receiver = shuffled[(i + 1) % shuffled.length];
+    assignments[giver] = receiver;
+  }
+
+  return assignments;
+}
+
+// Example:
+
+const participants = ["Alice", "Bob", "Charlie", "Diana", "Eve"];
+const invalidPairs = [
+  ["Alice", "Bob"], // Alice cannot gift to Bob
+  ["Charlie", "Diana"] // Charlie cannot gift to Diana
+];
+
+const result = secretSanta(participants, invalidPairs);
+
+console.log(result);
+
+
+// Print assignments:
+
+function printAssignments(assignments) {
+  for (const [giver, receiver] of Object.entries(assignments)) {
+    console.log(`${giver} is giving a gift to ${receiver}`);
+  }
+}
