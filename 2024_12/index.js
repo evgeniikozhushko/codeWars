@@ -366,3 +366,22 @@ describe("Tests", () => {
     assert.strictEqual(sayHello('Dr. McCoy'), 'Hello, Dr. McCoy')
   });
 });
+
+// LeetCode 2621.Sleep
+//Given a positive integer millis, write an asynchronous function that sleeps for millis milliseconds. It can resolve any value.
+
+/**
+ * @param {number} millis
+ * @return {Promise}
+ */
+async function sleep(millis) {
+  // const result  = await new Promise ((resolve) => setTimeout(() => resolve(millis), millis))
+  // return result
+
+  return new Promise((resolve) => setTimeout(() => resolve(millis), millis))
+}
+
+/** 
+* let t = Date.now()
+* sleep(100).then(() => console.log(Date.now() - t)) // 100
+*/
