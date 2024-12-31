@@ -385,3 +385,42 @@ async function sleep(millis) {
 * let t = Date.now()
 * sleep(100).then(() => console.log(Date.now() - t)) // 100
 */
+
+// 8 Kyu - Switch It Up
+
+function switchItUp(number){
+  switch (number) {
+    case 1:
+      return "One";
+    case 2:
+      return "Two";
+    case 3:
+      return "Three";
+    case 4:
+      return "Four";
+    case 5:
+      return "Five";
+    case 6:
+      return "Six";
+    case 7:
+      return "Seven";
+    case 8:
+      return "Eight";
+    case 9:
+      return "Nine";
+    default:
+      return "Unknown number";
+  }
+}
+
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Basic Tests",() =>{
+  it("Testing for fixed tests", () => {
+    assert.strictEqual(switchItUp(1),"One");
+    assert.strictEqual(switchItUp(3),"Three");
+    assert.strictEqual(switchItUp(5),"Five");
+  });
+});
