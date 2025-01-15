@@ -68,3 +68,33 @@ describe("Tests", () => {
     assert.deepEqual(filter_list([1,2,'aasf','1','123',123]),[1,2,123], 'For input [1,2,"aasf","1","123",123]');
   });
 });
+
+// 8kyu
+
+function problem(x){
+  if (typeof x === 'string') {
+    return 'Error'
+  }
+  return x * 50 + 6
+}
+
+// Sample Test Cases
+
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Basic tests", () => {
+  it("Testing for fixed tests", () => {
+    assert.strictEqual(problem("hello"), "Error");
+    assert.strictEqual(problem(1), 56);
+    assert.strictEqual(problem(5), 256);
+    assert.strictEqual(problem(0), 6);
+    assert.strictEqual(problem(1.2), 66);
+    assert.strictEqual(problem(3), 156);
+    assert.strictEqual(problem("RyanIsCool"), "Error");
+    assert.strictEqual(problem(-3), -144);
+    assert.strictEqual(problem(""), "Error");
+    assert.strictEqual(problem(0.03), 7.5);
+  })
+})
