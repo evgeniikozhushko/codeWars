@@ -78,6 +78,11 @@ function problem(x){
   return x * 50 + 6
 }
 
+// Clever Solution
+
+const problem = x => typeof x === 'string' ? 'Error' : x * 50 + 6;
+
+
 // Sample Test Cases
 
 const chai = require("chai");
