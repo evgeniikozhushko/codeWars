@@ -103,3 +103,29 @@ describe("Basic tests", () => {
     assert.strictEqual(problem(0.03), 7.5);
   })
 })
+
+// kata 8kyu
+
+// Convert number to reversed array of digits
+// Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+function digitize(n) {
+  return n
+    .toString()          // Step 1: Convert the number to a string (e.g., "35231")
+    .split('')           // Step 2: Split the string into an array of characters (e.g., ["3", "5", "2", "3", "1"])
+    .reverse()           // Step 3: Reverse the array (e.g., ["1", "3", "2", "5", "3"])
+    .map(Number);        // Step 4: Convert each character back to a number (e.g., [1, 3, 2, 5, 3])
+}
+
+// Sample test
+
+const chai = require("chai");
+const assert = chai.assert;
+chai.config.truncateThreshold=0;
+
+describe("Basic tests", () => {
+  it("Testing for fixed tests", () => {
+    assert.deepEqual(digitize(35231),[1,3,2,5,3]);
+    assert.deepEqual(digitize(0),[0]);
+  });
+});
