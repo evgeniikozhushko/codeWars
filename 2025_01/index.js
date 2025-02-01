@@ -129,3 +129,46 @@ describe("Basic tests", () => {
     assert.deepEqual(digitize(0),[0]);
   });
 });
+
+// 7 kyu An anagram is the result of rearranging the letters of a word to produce a new word (see wikipedia).
+
+// Note: anagrams are case insensitive
+
+// Complete the function to return true if the two arguments given are anagrams of each other; return false otherwise.
+
+var isAnagram = function (test, original) {
+  // Normalize both words: lowercase, remove non-alphabetic characters, sort letters
+  const normalize = (word) => word.toLowerCase().split('').sort().join('');
+
+  // Compare the normalized versions
+  return normalize(test) === normalize(original);
+};
+
+// 7 kyu Find the Capitals Write a function that takes a single non-empty string of only lowercase and uppercase ascii letters (word) as its argument,
+// and returns an ordered list containing the indices of all capital (uppercase) letters in the string.
+
+var capitals = function (word) {
+  let result = [];
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i].toUpperCase()) {
+      result.push(i);
+    }
+  }
+  return result;
+};
+
+// Sample test
+
+const chai = require('chai');
+const assert = chai.assert;
+chai.config.truncateThreshold = 0;
+
+describe('Basic tests', () => {
+  it('Testing for fixed tests', () => {
+    assert.deepEqual(capitals('CodEWaRs'), [0, 3, 4, 6], 'Input: "CodEWaRs"');
+    assert.deepEqual(capitals('aAbB'), [1, 3], 'Input: "aAbB"');
+    assert.deepEqual(capitals('AAA'), [0, 1, 2], 'Input: "AAA"');
+    assert.deepEqual(capitals(''), [], 'Input: ""');
+  });
+});
+
